@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Square Root Calculation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Square Root Calculation</h2>
+    <input type="number" id="squareInput" placeholder="Enter a number for square root" />
+    <button onclick="calculateSquareRoot()">Calculate Square Root</button>
+    <p id="squareRootResult"></p>
+    <a href="index.html"><button>Back to Home</button></a>
+  </div>
+
+  <script>
+    function calculateSquareRoot() {
+      const num = parseFloat(document.getElementById('squareInput').value);
+      const resultBox = document.getElementById('squareRootResult');
+      if (isNaN(num)) {
+        resultBox.innerText = "Please enter a valid number.";
+      } else {
+        const sqrtValue = Math.sqrt(num);
+        resultBox.innerText = `The square root of ${num} is: ${sqrtValue}`;
+      }
+    }
+  </script>
+</body>
+</html>

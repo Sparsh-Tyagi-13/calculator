@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perimeter Calculation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Perimeter Calculation</h2>
+    <input type="number" id="perimeterLength" placeholder="Enter length" />
+    <input type="number" id="perimeterWidth" placeholder="Enter width" />
+    <button onclick="calculatePerimeter()">Calculate Perimeter</button>
+    <p id="perimeterResult"></p>
+    <a href="index.html"><button>Back to Home</button></a>
+  </div>
+
+  <script>
+    function calculatePerimeter() {
+      const length = parseFloat(document.getElementById('perimeterLength').value);
+      const width = parseFloat(document.getElementById('perimeterWidth').value);
+      const resultBox = document.getElementById('perimeterResult');
+      if (isNaN(length) || isNaN(width)) {
+        resultBox.innerText = "Please enter valid numbers for length and width.";
+      } else {
+        resultBox.innerText = `The perimeter is: ${2 * (length + width)}`;
+      }
+    }
+  </script>
+</body>
+</html>

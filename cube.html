@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cube Calculation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Cube Calculation</h2>
+    <input type="number" id="cubeInput" placeholder="Enter a number for cube" />
+    <button onclick="calculateCube()">Calculate Cube</button>
+    <p id="cubeResult"></p>
+    <a href="index.html"><button>Back to Home</button></a>
+  </div>
+
+  <script>
+    function calculateCube() {
+      const num = parseFloat(document.getElementById('cubeInput').value);
+      const resultBox = document.getElementById('cubeResult');
+      if (isNaN(num)) {
+        resultBox.innerText = "Please enter a valid number.";
+      } else {
+        resultBox.innerText = `The cube of ${num} is: ${Math.pow(num, 3)}`;
+      }
+    }
+  </script>
+</body>
+</html>

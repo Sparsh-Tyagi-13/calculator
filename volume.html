@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Volume Calculation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Volume Calculation</h2>
+    <input type="number" id="volumeLength" placeholder="Enter length" />
+    <input type="number" id="volumeWidth" placeholder="Enter width" />
+    <input type="number" id="volumeHeight" placeholder="Enter height" />
+    <button onclick="calculateVolume()">Calculate Volume</button>
+    <p id="volumeResult"></p>
+    <a href="index.html"><button>Back to Home</button></a>
+  </div>
+
+  <script>
+    function calculateVolume() {
+      const length = parseFloat(document.getElementById('volumeLength').value);
+      const width = parseFloat(document.getElementById('volumeWidth').value);
+      const height = parseFloat(document.getElementById('volumeHeight').value);
+      const resultBox = document.getElementById('volumeResult');
+      if (isNaN(length) || isNaN(width) || isNaN(height)) {
+        resultBox.innerText = "Please enter valid numbers for length, width, and height.";
+      } else {
+        resultBox.innerText = `The volume is: ${length * width * height}`;
+      }
+    }
+  </script>
+</body>
+</html>

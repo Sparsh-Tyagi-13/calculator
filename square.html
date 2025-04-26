@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Square Number Check</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Check if a Number is a Perfect Square</h2>
+    <input type="number" id="squareInput" placeholder="Enter a number" />
+    <button onclick="checkPerfectSquare()">Check Square</button>
+    <p id="squareResult"></p>
+    <a href="index.html"><button>Back to Home</button></a>
+  </div>
+
+  <script>
+    function checkPerfectSquare() {
+      const num = parseFloat(document.getElementById('squareInput').value);
+      const resultBox = document.getElementById('squareResult');
+
+      if (isNaN(num)) {
+        resultBox.innerText = "Please enter a valid number.";
+        return;
+      }
+
+      const sqrtValue = Math.sqrt(num);
+      const nearestPerfectSquare = Math.round(sqrtValue) ** 2;
+      const nearestSqrt = Math.round(sqrtValue);
+
+      if (Number.isInteger(sqrtValue)) {
+        resultBox.innerText = `${num} is a perfect square! Its square root is ${sqrtValue}.`;
+      } else {
+        resultBox.innerText = `${num} is not a perfect square. The nearest perfect square is ${nearestPerfectSquare}, which is the square of ${nearestSqrt}.`;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container calculator">
+    <h2>Calculator</h2>
+    <input type="text" id="calculatorDisplay" disabled />
+    <div class="calculator-buttons">
+      <button onclick="appendToDisplay('7')">7</button>
+      <button onclick="appendToDisplay('8')">8</button>
+      <button onclick="appendToDisplay('9')">9</button>
+      <button onclick="appendToDisplay('+')">+</button>
+      
+      <button onclick="appendToDisplay('4')">4</button>
+      <button onclick="appendToDisplay('5')">5</button>
+      <button onclick="appendToDisplay('6')">6</button>
+      <button onclick="appendToDisplay('-')">-</button>
+      
+      <button onclick="appendToDisplay('1')">1</button>
+      <button onclick="appendToDisplay('2')">2</button>
+      <button onclick="appendToDisplay('3')">3</button>
+      <button onclick="appendToDisplay('*')">*</button>
+      
+      <button onclick="appendToDisplay('0')">0</button>
+      <button onclick="appendToDisplay('.')">.</button>
+      <button onclick="backspace()">Cut</button>
+      <button onclick="appendToDisplay('/')">/</button>
+      
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="calculateResult()">=</button>
+    </div>
+    <a href="index.html"><button class="back-button">Back to Home</button></a>
+  </div>
+
+  <script>
+    function appendToDisplay(value) {
+      document.getElementById('calculatorDisplay').value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById('calculatorDisplay').value = '';
+    }
+
+    function backspace() {
+      let display = document.getElementById('calculatorDisplay');
+      display.value = display.value.slice(0, -1);
+    }
+
+    function calculateResult() {
+      try {
+        let result = eval(document.getElementById('calculatorDisplay').value);
+        document.getElementById('calculatorDisplay').value = result;
+      } catch (e) {
+        document.getElementById('calculatorDisplay').value = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
